@@ -6,7 +6,12 @@ int main()
 {
   Matrix M; //объявление объекта класса
   int c,k,b,x,y,z;
+  int t[4][4];
   cout<<"Начальная матрица"<<endl; //заполнение значениями
+  for (int i=0;i<4;i++)
+    for(int j=0;j<4;j++)
+      t[i][j]=0;
+  Matrix M1(t);
   M.NachMatr();
   M.show();
   while (k!=0)
@@ -64,7 +69,8 @@ int main()
       case 4:
       {
         cout<<endl; // копирование матрицы
-        cout<<"Функция временно недоступна"<<endl;
+        //cout<<"Функция временно недоступна"<<endl;
+        Matrix matr=M;
         break;
       }
       case 5:

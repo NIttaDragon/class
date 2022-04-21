@@ -2,18 +2,17 @@
 class Matrix
 {
 private:
-  int m=4;
-  int M[4][4];
-  // int a[4][4];
+  int m_m=4;
+  int m_M[4][4];
 public:
   Matrix(); //конструктор класса
+  Matrix(int t[4][4]); //конструктор с параметром
   void show(); //вывод матрицы матрицы
   void NachMatr(); // начальная матрица
   void TraMat(); //транспонирование
   void YmnMat(int); //умножение
   void IzmTochZn(int,int,int); //изменение значений
-  // void SetMat(); //set-функция
-  // void GetMat(); //get-функция
-  // Matrix(const Matrix &obj) //копирование
+  Matrix(const Matrix &obj); //копирование
   ~Matrix(); //деструктор
+  friend ostream &operator<<(ostream &stream, Matrix obj); //перегрузка оператора
 };

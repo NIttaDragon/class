@@ -4,69 +4,69 @@ using namespace std;
 int i,j;
   Matrix::Matrix() //конструктор
   { }
+  Matrix::Matrix(int t[4][4]) //конструктор с параметром
+  {
+    for (i=0;i<m_m;i++)
+      for (j=0;j<m_m;j++)
+        m_M[i][j]=t[i][j];
+    cout<<"Матрица создана"<<endl;
+  }
   void Matrix::show() //вывод на экран матрицы
   {
-    for (i=0;i<m;i++)
+    for (i=0;i<m_m;i++)
     {
-      for (j=0;j<m;j++)
-        cout<<M[i][j]<<" ";
+      for (j=0;j<m_m;j++)
+        cout<<m_M[i][j]<<" ";
       cout<<endl;
     }
   };
   void Matrix::NachMatr() //начальная матрица
   {
-    for (i=0;i<m;i++)
-      for (j=0;j<m;j++)
-        M[i][j]=0;
+    for (i=0;i<m_m;i++)
+      for (j=0;j<m_m;j++)
+        m_M[i][j]=0;
   };
   void Matrix::TraMat() //транспонирование матрицы
   {
     int a=0;
-    for(i=0;i<m;i++)
-      for(j=i;j<m;j++)
+    for(i=0;i<m_m;i++)
+      for(j=i;j<m_m;j++)
       {
-        a=M[i][j];
-        M[i][j]=M[j][i];
-        M[j][i]=a;
+        a=m_M[i][j];
+        m_M[i][j]=m_M[j][i];
+        m_M[j][i]=a;
       }
   };
   void Matrix::YmnMat(int c) //умножение матрицы
   {
-    for(i=0;i<m;i++)
-      for(j=0;j<m;j++)
-        M[i][j]=M[i][j]*c;
+    for(i=0;i<m_m;i++)
+      for(j=0;j<m_m;j++)
+        m_M[i][j]=m_M[i][j]*c;
   };
   void Matrix::IzmTochZn(int x,int y,int z) //изменение точечного значения
   {
-    for(i=0;i<m;i++)
-      for(j=0;j<m;j++)
+    for(i=0;i<m_m;i++)
+      for(j=0;j<m_m;j++)
         if((i==x)&&(j==y))
-          M[i][j]=z;
+          m_M[i][j]=z;
   };
-  // void Matrix::SetMat()
-  // {
-  //
-  // };
-  // void Matrix::GetMat()
-  // {
-  //
-  // };
-  //копирование матрицы
-  // Matrix::Matrix(const Matrix &obj)
-  // {
-  //   for(i=0;i<m;i++)
-  //     for(j=0;j<m;j++)
-  //       {
-  //         &M[i][j]=new int;
-  //         *M[i][j]= *obj.M[i][j];
-  //       }
-  //   cout<<"Матрица скопирована"<<endl;
-  //   // M = obj.M;
-  //   // for(i=0;i<m;i++)
-  //   //   for(j=0;j<m;j++)
-  //   //     M[i][j]= obj.M[i][j];
-  // }
+  Matrix::Matrix(const Matrix &obj) //копирование матрицы
+  {
+    for(i=0;i<m_m;i++)
+      for(j=0;j<m_m;j++)
+        {
+          m_M[i][j]= obj.m_M[i][j];
+        }
+    cout<<"Матрица скопирована"<<endl;
+  }
   Matrix::~Matrix() //деструктор
   {
     cout<<"Матрица удалена"<<endl;
+  }
+  ostream &operator<<(ostream &stream, Matrix obj)
+  {
+    for(i=0;i<m_m;i++)
+      for(j=0;j<m_m;j++)
+        stream<<m_M[i][j]<<"," ;
+    return stream;
   }
