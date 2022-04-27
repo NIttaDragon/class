@@ -3,13 +3,17 @@
 using namespace std;
 int i,j;
   Matrix::Matrix() //конструктор
-  { }
+  {
+    for(i=0;i<m_m;i++)
+      for(j=0;j<m_m;j++)
+        m_M[i][j]=0;
+  }
   Matrix::Matrix(int t[4][4]) //конструктор с параметром
   {
     for (i=0;i<m_m;i++)
       for (j=0;j<m_m;j++)
         m_M[i][j]=t[i][j];
-    cout<<"Матрица создана"<<endl;
+    //cout<<"Матрица создана"<<endl;
   }
   void Matrix::show() //вывод на экран матрицы
   {
@@ -54,19 +58,20 @@ int i,j;
   {
     for(i=0;i<m_m;i++)
       for(j=0;j<m_m;j++)
-        {
           m_M[i][j]= obj.m_M[i][j];
-        }
     cout<<"Матрица скопирована"<<endl;
   }
   Matrix::~Matrix() //деструктор
   {
     cout<<"Матрица удалена"<<endl;
   }
-  ostream &operator<<(ostream &stream, Matrix obj)
+  ostream& operator<<(ostream &stream, Matrix obj)
   {
-    for(i=0;i<m_m;i++)
-      for(j=0;j<m_m;j++)
-        stream<<m_M[i][j]<<"," ;
+    for(i=0;i<obj.m_m;i++)
+    {
+      for(j=0;j<obj.m_m;j++)
+        stream<<obj.m_M[i][j]<<"  " ;
+      stream<<endl;
+    }
     return stream;
   }

@@ -1,13 +1,11 @@
-//#pragma once
 #include <iostream>
-//#include "prem.h"
 using namespace std;
+//спецификация
 class Matrix
 {
   int m_m=4;
   int m_M[4][4];
 public:
-
   Matrix(); //конструктор класса
   Matrix(int t[4][4]); //конструктор с параметром
   void show(); //вывод матрицы матрицы
@@ -18,13 +16,12 @@ public:
   void IzmTochZn(int,int,int); //изменение значений
   Matrix(const Matrix &obj); //копирование
   ~Matrix(); //деструктор
- friend  ostream &operator<<(ostream &stream, Matrix obj); //перегрузка оператора
+  friend ostream &operator<<(ostream &stream, Matrix obj); //перегрузка оператора
 };
-
+//реализация
 int i,j;
   Matrix::Matrix() //конструктор
   {
-
     for (i=0;i<m_m;i++)
       for (j=0;j<m_m;j++)
         m_M[i][j]=0;
@@ -34,7 +31,6 @@ int i,j;
     for (i=0;i<m_m;i++)
       for (j=0;j<m_m;j++)
         m_M[i][j]=t[i][j];
-  //  cout<<"Матрица создана"<<endl;
   }
   void Matrix::show() //вывод на экран матрицы
   {
@@ -90,14 +86,13 @@ int i,j;
   {
     for(i=0;i<obj.m_m;i++)
     {
-
       for(j=0;j<obj.m_m;j++)
         stream<<obj.m_M[i][j]<<"   " ;
       stream<<endl;
     }
     return stream;
   }
-
+//главная прога
 int main()
 {
   Matrix M; //объявление объекта класса
@@ -109,14 +104,11 @@ int main()
       t[i][j]=i*j;
 
   Matrix M1(t);
-  cout<<M;
+  cout<<"o-o"<<M;
 
-  cout<<M1;
   Matrix * M2 = new Matrix;
-
-  cout<<*M2;
-
-   M2->show();
+  cout<<"^-^";
+  M2->show();
   /*
   M.NachMatr();
   M.show();

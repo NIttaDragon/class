@@ -1,10 +1,9 @@
-//объявление класса
-class Matrix
+#include <iostream>
+class Matrix //объявление класса
 {
-private:
+public:
   int m_m=4;
   int m_M[4][4];
-public:
   Matrix(); //конструктор класса
   Matrix(int t[4][4]); //конструктор с параметром
   void show(); //вывод матрицы матрицы
@@ -14,5 +13,5 @@ public:
   void IzmTochZn(int,int,int); //изменение значений
   Matrix(const Matrix &obj); //копирование
   ~Matrix(); //деструктор
-  friend ostream &operator<<(ostream &stream, Matrix obj); //перегрузка оператора
+  //friend ostream& operator<<(ostream &stream, Matrix obj); //перегрузка оператора
 };
