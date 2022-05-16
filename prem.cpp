@@ -65,7 +65,7 @@ int i,j;
   {
     cout<<"Матрица удалена"<<endl;
   }
-  ostream& operator<<(ostream &stream, Matrix obj)
+  ostream& operator<<(ostream &stream, Matrix obj) //перегрузка ввода
   {
     for(i=0;i<obj.m_m;i++)
     {
