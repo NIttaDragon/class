@@ -1,8 +1,5 @@
 #include <iostream>
 #include "specnasnew.h"
-// #include "reanas.cpp"
-// #include "reanas1.cpp"
-// #include "reanas2.cpp"
 using namespace std;
 
 int main()
