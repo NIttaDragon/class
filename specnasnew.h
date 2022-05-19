@@ -4,42 +4,21 @@ using namespace std;
 class CPolygon //объявление класса
 {
 protected:
-  int vp[7][2];
-  int d[7];
-  int n=7;
+  float x,m;
 public:
-  int per=0;
-  CPolygon() //конструктор класса
+  CPolygon(){}//конструктор класса
+  CPolygon(float m):m(x) {}//конструктор с параметром
+  virtual float Perimetr()=0;//вычисление периметра
+  virtual void show() //вывод основных характеристик
   {
-    for(int i=0;i<n;i++)
-      for(int j=0;j<2;j++)
-        vp[i][j]=3*i+2*j;
+    cout<<"Периметр= "<<Perimetr()<<endl;
   }
-  CPolygon(int n) //конструктор с параметром
+  void X() //ввод стороны
   {
-    for(int i=0;i<n;i++)
-      for(int j=0;j<2;j++)
-        vp[i][j]=3*i+2*j;
-  }
-  virtual void Perimetr(int n) //вычисление периметра
-  {
-    for(int i=0;i<(n-1);i++)
-      for(int j=0;j<1;j++)
-        d[i]=sqrt(pow((vp[i][j]-vp[i+1][j]),2)+pow((vp[i][j+1]-vp[i+1][j+1]),2));
-    d[n]=sqrt(pow((vp[n][0]-vp[0][0]),2)+pow((vp[n][1]-vp[0][1]),2));
-    for(int i=0;i<n;i++)
-      per=per+d[i];
-  };
-  void show(int n) //вывод основных характеристик
-  {
-    cout<<"Периметр= "<<per<<endl;;
-    cout<<"Вершины: "<<endl;
-    for(int i=0;i<n;i++)
-      for(int j=0;j<2;j++)
-        if(j==0)
-          cout<<"x= "<<vp[i][j]<<"   ";
-        else
-          cout<<"y= "<<vp[i][j]<<endl;
+    int y=0;
+    cout<<"Введите х= ";
+    cin>>y;
+    x=y;
   }
   ~CPolygon() //деструктор
   {
@@ -49,13 +28,13 @@ public:
 
 class CTriangle:public CPolygon //объявление класса
 {
-  int vt[3][2];
-  int d[3];
-  int n=3;
 public:
-  int per;
   CTriangle():CPolygon(){}; //конструктор класса
-  CTriangle(int n):CPolygon(n){}; //конструктор с параметром
+  CTriangle(float x):CPolygon(x) {}; //конструктор с параметром
+  float Perimetr() override //вывод периметра
+  {
+    return x*2+sqrt(pow(x,2)*2);
+  }
   ~CTriangle() //деструктор
   {
     cout<<"Треугольник удален"<<endl;
@@ -64,15 +43,13 @@ public:
 
 class CQuad:public CPolygon //объявление класса
 {
-  int vq[4][2];
-  int d[3];
-  int n=4;
 public:
-  int per;
   CQuad():CPolygon(){}; //конструктор класса
-  CQuad(int n):CPolygon(n){}; //конструктор с параметром
-  ~CQuad() //деструктор
+  CQuad(float x):CPolygon(x) {}; //конструктор с параметром
+  float Perimetr() override // вывод периметра
   {
-    cout<<"Квадрат удален"<<endl;
+      return x*4;
   }
+  ~CQuad() //деструктор
+  {cout<<"Квадрат удален"<<endl;}
 };

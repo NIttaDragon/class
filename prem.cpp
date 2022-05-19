@@ -13,7 +13,6 @@ int i,j;
     for (i=0;i<m_m;i++)
       for (j=0;j<m_m;j++)
         m_M[i][j]=t[i][j];
-    //cout<<"Матрица создана"<<endl;
   }
   void Matrix::show() //вывод на экран матрицы
   {
