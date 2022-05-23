@@ -37,7 +37,7 @@ public:
           cout<<"x= "<<v[i][0]<<"   "<<"y= "<<v[i][1]<<endl;
   }
   ~CPolygon() //деструктор
-  {cout<<"Многоугольник удален"<<endl;}
+  {/*cout<<"Многоугольник удален"<<endl;*/}
 };
 
 class CTriangle:public CPolygon //объявление класса
@@ -46,7 +46,7 @@ public:
   CTriangle():CPolygon(){}; //конструктор класса
   CTriangle(int t[4][2]):CPolygon(t){}; //конструктор с параметром
   ~CTriangle() //деструктор
-  {cout<<"Треугольник удален"<<endl;}
+  {/*cout<<"Треугольник удален"<<endl;*/}
 };
 
 class CQuad:public CPolygon //объявление класса
@@ -55,5 +55,5 @@ public:
   CQuad():CPolygon(){}; //конструктор класса
   CQuad(int t[4][2]):CPolygon(t){}; //конструктор с параметром
   ~CQuad() //деструктор
-  {cout<<"Квадрат удален"<<endl;}
+  {/*cout<<"Квадрат удален"<<endl;*/}
 };
