@@ -15,9 +15,18 @@ public:
         a= new T[x];
     };
     ~CArray(){}; //деструктор
-    T& operator[] (int i); //перегрузка оператора индексации
-    template <typename Tr>friend ostream& // перегрузка вывода
-      operator<<(ostream& stream, CArray <Tr>& arr);
+    T operator [] (int i)  //перегрузка оператора индексации
+    {
+      if(i<0||i>x-1) exit(1);
+      return a[i];
+    }
+     // template <typename Tr> ostream& operator<<(ostream& stream, CArray <Tr>& arr)// перегрузка вывода
+     //  {
+     //    for(int i=0;i<x;i++)
+     //      stream<<arr.a[i]<<" O_O ";
+     //    return stream;
+     //  }
+
     void Get(/*int y, T l*/)
     {
       for(int i=0;i<x;i++)
@@ -30,6 +39,6 @@ public:
     void Show()
     {
       for(int i=0;i<x;i++)
-        cout<<"a["<<i<<"]= "<<a[i]<<endl;
+        cout<<a[i]<<endl;
     };
 };

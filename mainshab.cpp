@@ -6,9 +6,6 @@ using namespace std;
 int main()
 {
     int x,b,c,y,j;
-    // cout<<"Введите размер массива "<<endl;
-    // cin>>x;
-    // CArray <int> R1(x); //конструктор с параметром
     CArray <char> C;
     CArray <float> F;
     CArray <int> I;
