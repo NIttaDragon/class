@@ -5,10 +5,11 @@ using namespace std;
 
 int main()
 {
-    int x,b,c,y,j;
-    CArray <char> C;
-    CArray <float> F;
-    CArray <int> I;
+    int b,c,j;
+    CArray <char,3> C;
+    CArray <float,3> F;
+    CArray <int,3> I;
+    cout<<"Размер массива 3"<<endl;
     int k=1;
     while (k!=0)
     {
@@ -33,18 +34,21 @@ int main()
           {
             case 1:
             {
+              cout<<"Введите переменные"<<endl;
               C.Get();
               j=1;
               break;
             }
             case 2:
             {
+              cout<<"Введите переменные"<<endl;
               F.Get();
               j=2;
               break;
             }
             case 3:
             {
+              cout<<"Введите переменные"<<endl;
               I.Get();
               j=3;
               break;
