@@ -20,7 +20,7 @@ public:
       for(int i=0;i<x;i++)
         cout<<arr.a[i]<<endl;
     }
-    void Get(/*int y, T l*/)
+    void Get()
     {
       for(int i=0;i<x;i++)
       {
