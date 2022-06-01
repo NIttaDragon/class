@@ -19,7 +19,7 @@ int main()
       cout<<"2. Вывести на экран"<<endl;
       cout<<"3. Ничего, завершить программу"<<endl;
       cout<<"Ваш выбор: ";
-      cin>>b;
+      cin>>b; cout<<endl;
       switch (b)
       {
         case 1:
@@ -29,7 +29,7 @@ int main()
           cout<<"2. Float"<<endl;
           cout<<"3. Integer"<<endl;
           cout<<"Ваш выбор: ";
-          cin>>c;
+          cin>>c; cout<<endl;
           switch (c)
           {
             case 1:
